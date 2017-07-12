@@ -1,0 +1,58 @@
+<xsd:schema targetNamespace="http://claro.com.pe/esb/data/ventas/bsscorporativo/types" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://claro.com.pe/esb/data/ventas/bsscorporativo/types" xmlns:base="http://claro.com.pe/esb/data/generico/baseschema/v1/" xmlns:tns="http://claro.com.pe/esb/data/ventas/bsscorporativo/types">
+
+<xsd:import namespace="http://claro.com.pe/esb/data/generico/baseschema/v1/" schemaLocation="../../../SRV_Corporativo/Resources/XSD/BaseSchema.xsd"/>
+			
+   <xsd:complexType name="ListaDatosRLCantBioBioType">    
+      <xsd:sequence>
+          <xsd:element name="datosRL" type="DatosRLCantBioType" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>     
+    </xsd:complexType> 
+    
+    <xsd:complexType name="DatosRLCantBioType"> 
+          <xsd:sequence>
+              <xsd:element name="tipoDocumento" type="xsd:string"/>
+              <xsd:element name="numeroDocumento" type="xsd:string"/>
+              <xsd:element name="tipo" type="xsd:string"/>
+              <xsd:element name="nombre" type="xsd:string"/>
+              <xsd:element name="primerApellido" type="xsd:string"/>
+              <xsd:element name="segundoApellido" type="xsd:string"/>
+              <xsd:element name="celular" type="xsd:string"/>
+              <xsd:element name="email" type="xsd:string"/>
+              <xsd:element name="validacionBio" type="xsd:string"/>
+              <xsd:element name="bioMIdPadre" type="xsd:string"/>
+              <xsd:element name="cargo" type="xsd:string"/>
+              <xsd:element name="estado" type="xsd:string"/>
+              <xsd:element name="aplicacion" type="xsd:string"/>
+              <xsd:element name="tipoOperacion" type="xsd:string"/>
+              <xsd:element name="observacion" type="xsd:string"/>
+          </xsd:sequence> 
+   </xsd:complexType>
+    
+	 <xsd:complexType name="ResponseDataValidarCantBio">    
+      <xsd:sequence> 
+        <xsd:element name="cantValidacionesBio" type="xsd:int"/>
+        <xsd:element name="listaDatosRL" type="tns:ListaDatosRLCantBioBioType"/>
+        <xsd:element name="listaResponseOpcional" minOccurs="1" maxOccurs="1" type="base:ResponseOpcionalType"/>
+      </xsd:sequence>
+    </xsd:complexType> 
+
+	<!--******************* REQUEST ******************* -->
+	<xsd:element name="validarCantBioRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ruc" type="xsd:string"/>
+				<xsd:element name="listaRequestOpcional" minOccurs="1" maxOccurs="1" type="base:RequestOpcionalType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+  
+	<!--******************* RESPONSE ******************* -->	
+	<xsd:element name="validarCantBioResponse">
+		<xsd:complexType>
+			<xsd:sequence>		
+				<xsd:element name="responseStatus" type="base:responseStatus"/>
+				<xsd:element name="responseData" type="tns:ResponseDataValidarCantBio"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

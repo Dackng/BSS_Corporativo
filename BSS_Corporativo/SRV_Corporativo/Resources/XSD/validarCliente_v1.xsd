@@ -1,0 +1,88 @@
+<xsd:schema targetNamespace="http://claro.com.pe/esb/data/ventas/bsscorporativo/types" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://claro.com.pe/esb/data/ventas/bsscorporativo/types" xmlns:base="http://claro.com.pe/esb/data/generico/baseschema/v1/" xmlns:tns="http://claro.com.pe/esb/data/ventas/bsscorporativo/types">
+
+<xsd:import namespace="http://claro.com.pe/esb/data/generico/baseschema/v1/" schemaLocation="../../../SRV_Corporativo/Resources/XSD/BaseSchema.xsd"/> 
+    
+    <xsd:complexType name="DatosRucResponseType"> 
+          <xsd:sequence>
+              <xsd:element name="tipoCliente" type="xsd:integer"/>
+              <xsd:element name="tipoDocumento" type="xsd:string"/>
+              <xsd:element name="numeroDocumento" type="xsd:string"/>
+              <xsd:element name="email" type="xsd:string"/>
+              <xsd:element name="telefono" type="xsd:string"/>
+              <xsd:element name="razonSocial" type="xsd:string"/>
+              <xsd:element name="nombres" type="xsd:string"/>
+              <xsd:element name="apellidos" type="xsd:string"/>
+              <xsd:element name="foto" type="xsd:base64Binary"/>
+              <xsd:element name="primeraVez" type="xsd:boolean"/>
+          </xsd:sequence> 
+   </xsd:complexType>
+   
+   <xsd:complexType name="DatosCorreoResponseType"> 
+          <xsd:sequence>
+              <xsd:element name="tipoCliente" type="xsd:integer"/>
+              <xsd:element name="tipoDocumento" type="xsd:string"/>
+              <xsd:element name="numeroDocumento" type="xsd:string"/>
+              <xsd:element name="email" type="xsd:string"/>
+              <xsd:element name="telefono" type="xsd:string"/>
+              <xsd:element name="razonSocial" type="xsd:string"/>
+              <xsd:element name="nombres" type="xsd:string"/>
+              <xsd:element name="apellidos" type="xsd:string"/>
+              <xsd:element name="foto" type="xsd:base64Binary"/>
+              <xsd:element name="primeraVez" type="xsd:boolean"/>
+          </xsd:sequence> 
+   </xsd:complexType>
+   
+   <xsd:complexType name="DatosTipoClienteResponseType"> 
+          <xsd:sequence>
+              <xsd:element name="tipoCliente" type="xsd:integer"/>
+              <xsd:element name="estaRegistrado" type="xsd:boolean"/>
+              <xsd:element name="estaPreRegistrado" type="xsd:boolean"/>
+              <xsd:element name="mailCelEnvio" type="xsd:string"/>
+              <xsd:element name="usuarioMovil" type="xsd:boolean"/>
+            <xsd:element name="DefaultServiceResponse" type="DefaultServiceResponse"/>
+        </xsd:sequence> 
+   </xsd:complexType>
+   
+   <xsd:complexType name="DefaultServiceResponse"> 
+          <xsd:sequence>
+              <xsd:element name="categoria" type="xsd:integer"/>
+              <xsd:element name="idRespuesta" type="xsd:string"/>
+              <xsd:element name="mensaje" type="xsd:string"/>
+              <xsd:element name="excepcion" type="xsd:string"/>
+              <xsd:element name="idTransaccional" type="xsd:string"/>
+        </xsd:sequence> 
+   </xsd:complexType>
+    
+    <xsd:complexType name="ResponseDataValidarCliente">    
+      <xsd:sequence> 
+        <xsd:element name="RucConCuenta" type="xsd:boolean"/>
+        <xsd:element name="tipoCliente" type="xsd:integer"/>
+        <xsd:element name="CorreoAsociadoOtroRuc" minOccurs="1" maxOccurs="1" type="xsd:boolean"/>
+            <xsd:element name="DatosRucResponse" type="DatosRucResponseType"/>
+            <xsd:element name="DatosCorreoResponse" type="DatosCorreoResponseType"/>
+            <xsd:element name="DatosTipoClienteResponse" type="DatosTipoClienteResponseType"/>
+            <xsd:element name="listaResponseOpcional" type="base:ResponseOpcionalType"/>
+        </xsd:sequence>
+    </xsd:complexType> 
+
+	<!--******************* REQUEST ******************* -->
+	<xsd:element name="ValidarClienteRequest">
+          <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ruc" type="xsd:string"/>
+                <xsd:element name="email" type="xsd:string"/>
+                <xsd:element name="listaRequestOpcional" minOccurs="1" maxOccurs="1" type="base:RequestOpcionalType"/>
+            </xsd:sequence>
+          </xsd:complexType>
+	</xsd:element>
+  
+	<!--******************* RESPONSE ******************* -->	
+	<xsd:element name="ValidarClienteResponse">
+		<xsd:complexType>
+			<xsd:sequence>		
+				<xsd:element name="responseStatus" type="base:responseStatus"/>
+				<xsd:element name="responseData" type="tns:ResponseDataValidarCliente"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

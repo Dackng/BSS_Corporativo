@@ -1,0 +1,189 @@
+<definitions name="PRS_ValidaIdentidad_v1" 
+targetNamespace="http://claro.com.pe/esb/ventas/bsscorporativo/v1/" 
+xmlns="http://schemas.xmlsoap.org/wsdl/"
+xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+xmlns:tns="http://claro.com.pe/esb/ventas/bsscorporativo/v1/" 
+xmlns:cf="http://claro.com.pe/esb/data/generico/claroFault/v1/" 
+xmlns:he="http://claro.com.pe/esb/data/generico/claroGenericHeader/v1/" 
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
+xmlns:types="http://claro.com.pe/esb/data/ventas/bsscorporativo/types">
+                 
+ <wsdl:types>
+  <xsd:schema>
+      <xsd:import schemaLocation="../../../SRV_Corporativo/Resources/XSD/validarRegistroBio_v1.xsd" namespace="http://claro.com.pe/esb/data/ventas/bsscorporativo/types"/>
+      <xsd:import schemaLocation="../../../SRV_Corporativo/Resources/XSD/validarCantBio_v1.xsd" namespace="http://claro.com.pe/esb/data/ventas/bsscorporativo/types"/>
+      <xsd:import schemaLocation="../../../SRV_Corporativo/Resources/XSD/validarCliente_v1.xsd" namespace="http://claro.com.pe/esb/data/ventas/bsscorporativo/types"/>
+      
+      <xsd:import schemaLocation="../../../SRV_Corporativo/Resources/XSD/ClaroFault_v1.xsd" namespace="http://claro.com.pe/esb/data/generico/claroFault/v1/"/> 
+      <xsd:import schemaLocation="../../../SRV_Corporativo/Resources/XSD/ClaroGenericHeaders_v1.xsd" namespace="http://claro.com.pe/esb/data/generico/claroGenericHeader/v1/"/>
+    </xsd:schema>
+  </wsdl:types>
+
+  <wsdl:message name="headerRequest">
+    <wsdl:part name="headerRequest" element="he:headerRequest"/>
+  </wsdl:message>
+  <wsdl:message name="headerResponse">
+    <wsdl:part name="headerResponse" element="he:headerResponse"/>
+  </wsdl:message>
+  
+  <wsdl:message name="validarRegistroBioRequestMessage">
+    <wsdl:part name="validarRegistroBioRequest" element="types:validarRegistroBioRequest"/>
+  </wsdl:message>
+  <wsdl:message name="validarRegistroBioResponseMessage">
+    <wsdl:part name="validarRegistroBioResponse" element="types:validarRegistroBioResponse"/>
+  </wsdl:message> 
+
+  <wsdl:message name="validarCantBioRequestMessage">
+    <wsdl:part name="validarCantBioRequest" element="types:validarCantBioRequest"/>
+  </wsdl:message>
+  <wsdl:message name="validarCantBioResponseMessage">
+    <wsdl:part name="validarCantBioResponse" element="types:validarCantBioResponse"/>
+  </wsdl:message> 
+  
+  <wsdl:message name="validarClienteRequestMessage">
+    <wsdl:part name="validarClienteRequest" element="types:ValidarClienteRequest"/>
+  </wsdl:message>
+  <wsdl:message name="validarClienteResponseMessage">
+    <wsdl:part name="validarClienteResponse" element="types:ValidarClienteResponse"/>
+  </wsdl:message>
+
+  <wsdl:message name="claroFault">
+    <wsdl:part name="claroFault" element="cf:claroFault"/>
+  </wsdl:message>
+  
+  <wsdl:portType name="BSS_CorporativoPort">
+    
+    <wsdl:operation name="validarRegistroBio">
+      <wsdl:input message="tns:validarRegistroBioRequestMessage"/>
+      <wsdl:output message="tns:validarRegistroBioResponseMessage"/>
+      <wsdl:fault message="tns:claroFault" name="claroFault"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="validarCantBio">
+      <wsdl:input message="tns:validarCantBioRequestMessage"/>
+      <wsdl:output message="tns:validarCantBioResponseMessage"/>
+      <wsdl:fault message="tns:claroFault" name="claroFault"/>
+    </wsdl:operation>
+    
+     <wsdl:operation name="validarCliente">
+      <wsdl:input message="tns:validarClienteRequestMessage"/>
+      <wsdl:output message="tns:validarClienteResponseMessage"/>
+      <wsdl:fault message="tns:claroFault" name="claroFault"/>
+    </wsdl:operation>
+
+  </wsdl:portType>
+
+  
+  <wsdl:binding name="BSS_CorporativoSOAP11Binding" type="tns:BSS_CorporativoPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+   
+    <wsdl:operation name="validarRegistroBio">
+      <soap:operation style="document" soapAction="http://claro.com.pe/esb/ventas/bsscorporativo/v1/validarRegistroBio"/>
+      <wsdl:input>
+        <soap:header message="tns:headerRequest" part="headerRequest" use="literal"/>
+        <soap:body use="literal" parts="validarRegistroBioRequest"/>
+      </wsdl:input>
+      <wsdl:output>
+       <soap:header message="tns:headerResponse" part="headerResponse" use="literal"/>
+        <soap:body use="literal" parts="validarRegistroBioResponse"/>
+      </wsdl:output>
+	  <wsdl:fault name="claroFault"> 
+        <soap:fault name="claroFault" use="literal"/> 
+	  </wsdl:fault> 
+    </wsdl:operation>
+
+    <wsdl:operation name="validarCantBio">
+      <soap:operation style="document" soapAction="http://claro.com.pe/esb/ventas/bsscorporativo/v1/validarCantBio"/>
+      <wsdl:input>
+        <soap:header message="tns:headerRequest" part="headerRequest" use="literal"/>
+        <soap:body use="literal" parts="validarCantBioRequest"/>
+      </wsdl:input>
+      <wsdl:output>
+       <soap:header message="tns:headerResponse" part="headerResponse" use="literal"/>
+       <soap:body use="literal" parts="validarCantBioResponse"/>
+      </wsdl:output>
+	  <wsdl:fault name="claroFault"> 
+		<soap:fault name="claroFault" use="literal"/> 
+	  </wsdl:fault> 
+    </wsdl:operation>  
+    
+    <wsdl:operation name="validarCliente">
+      <soap:operation style="document" soapAction="http://claro.com.pe/esb/ventas/bsscorporativo/v1/validarCliente"/>
+      <wsdl:input>
+        <soap:header message="tns:headerRequest" part="headerRequest" use="literal"/>
+        <soap:body use="literal" parts="validarClienteRequest"/>
+      </wsdl:input>
+      <wsdl:output>
+       <soap:header message="tns:headerResponse" part="headerResponse" use="literal"/>
+       <soap:body use="literal" parts="validarClienteResponse"/>
+      </wsdl:output>
+	  <wsdl:fault name="claroFault"> 
+		<soap:fault name="claroFault" use="literal"/> 
+	  </wsdl:fault> 
+    </wsdl:operation>  
+  
+  </wsdl:binding>
+  
+  <wsdl:binding name="BSS_CorporativoSOAP12Binding" type="tns:BSS_CorporativoPort">
+    <soap12:binding style="document" transport="http://www.w3.org/2003/05/soap/bindings/HTTP/"/>
+    
+    <wsdl:operation name="validarRegistroBio">
+      <soap12:operation style="document" soapAction="http://claro.com.pe/esb/ventas/bsscorporativo/v1/validarRegistroBio"/>
+      <wsdl:input>
+        <soap:header message="tns:headerRequest" part="headerRequest" use="literal"/>
+        <soap12:body use="literal" parts="validarRegistroBioRequest"/>
+      </wsdl:input>
+      <wsdl:output>
+       <soap:header message="tns:headerResponse" part="headerResponse" use="literal"/>
+        <soap12:body use="literal" parts="validarRegistroBioResponse"/>
+      </wsdl:output>
+	  <wsdl:fault name="claroFault"> 
+		<soap:fault name="claroFault" use="literal"/> 
+	  </wsdl:fault> 
+    </wsdl:operation>
+
+    <wsdl:operation name="validarCantBio">
+      <soap12:operation style="document" soapAction="http://claro.com.pe/esb/ventas/bsscorporativo/v1/validarCantBio"/>
+      <wsdl:input>
+        <soap:header message="tns:headerRequest" part="headerRequest" use="literal"/>
+        <soap12:body use="literal" parts="validarCantBioRequest"/>
+      </wsdl:input>
+      <wsdl:output>
+       <soap:header message="tns:headerResponse" part="headerResponse" use="literal"/>
+        <soap12:body use="literal" parts="validarCantBioResponse"/>
+      </wsdl:output>
+	  <wsdl:fault name="claroFault"> 
+		<soap:fault name="claroFault" use="literal"/> 
+	  </wsdl:fault> 
+    </wsdl:operation>
+	
+    <wsdl:operation name="validarCliente">
+      <soap12:operation style="document" soapAction="http://claro.com.pe/esb/ventas/bsscorporativo/v1/validarCliente"/>
+      <wsdl:input>
+        <soap:header message="tns:headerRequest" part="headerRequest" use="literal"/>
+        <soap12:body use="literal" parts="validarClienteRequest"/>
+      </wsdl:input>
+      <wsdl:output>
+       <soap:header message="tns:headerResponse" part="headerResponse" use="literal"/>
+        <soap12:body use="literal" parts="validarClienteResponse"/>
+      </wsdl:output>
+	  <wsdl:fault name="claroFault"> 
+		<soap:fault name="claroFault" use="literal"/> 
+	  </wsdl:fault> 
+    </wsdl:operation>
+  </wsdl:binding>
+  
+  <!-- Servicio SOAP versiones 11, 12 -->
+  <wsdl:service name="BSS_Corporativo">
+    <wsdl:port name="BSS_CorporativoSB11" binding="tns:BSS_CorporativoSOAP11Binding">
+        <soap:address location="http://127.0.0.1:7001/BSS_Corporativo/BSS_CorporativoSB11"/>
+    </wsdl:port>
+    <wsdl:port name="BSS_CorporativoSB12" binding="tns:BSS_CorporativoSOAP12Binding">
+        <soap12:address location="http://127.0.0.1:7001/BSS_Corporativo/BSS_CorporativoSB12"/>
+    </wsdl:port>
+  </wsdl:service>
+</definitions>

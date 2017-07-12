@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema"
+xmlns:aud="http://claro.com.pe/esb/data/generico/claroFault/v1/"
+targetNamespace="http://claro.com.pe/esb/data/generico/claroFault/v1/"
+elementFormDefault="qualified" >
+<!-- Auditoria -->
+<xsd:element name="claroFault" type="aud:ClaroFaultType"/> 
+<complexType name="ClaroFaultType" >
+	<sequence>
+                <element name="idAuditoria" type="string" />
+                <element name="codigoError" type="string" />
+                <element name="descripcionError" type="string" />
+                <element name="ubicacionError" type="string" />
+		<element name="fecha" type="dateTime" />
+		<element name="errorOrigen" type="anyType" />
+	</sequence>
+</complexType>
+
+
+</xsd:schema>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://claro.com.pe/bpel/data/generico/claroGenericHeader/v1/"
+            xmlns:tns="http://claro.com.pe/esb/data/generico/claroGenericHeader/v1/"
+            targetNamespace="http://claro.com.pe/esb/data/generico/claroGenericHeader/v1/" elementFormDefault="qualified">
+ 
+ 
+ <xsd:element name="headerRequest"  type="tns:HeaderRequestType"/>
+ <xsd:element name="headerResponse" type="tns:HeaderResponseType"/>   
+ 
+   <xsd:complexType name="HeaderRequestType">
+    <xsd:sequence>
+      <xsd:element name="canal" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="idAplicacion" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="usuarioAplicacion" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="usuarioSesion" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="idTransaccionESB" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="idTransaccionNegocio" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="fechaInicio" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="nodoAdicional" type="xsd:anyType" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="HeaderResponseType">
+    <xsd:sequence>
+      <xsd:element name="idTransaccionESB" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+       <xsd:element name="idTransaccionNegocio" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="fechaInicio" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="fechaFin" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="nodoAdicional" type="xsd:anyType" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>

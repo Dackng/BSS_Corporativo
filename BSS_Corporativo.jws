@@ -27,7 +27,6 @@
       <string v="oracle.jdeveloper.model.PathsConfiguration/ResourceBundlesContentSet"/>
    </list>
    <list n="listOfChildren">
-      <hash><url n="URL" path="BSS_Corporativo/BSS_Corporativo.jpr"/></hash>
       <hash><url n="URL" path="CON_SW_AdministrarUsuario/CON_SW_AdministrarUsuario.jpr"/></hash>
       <hash><url n="URL" path="UT_ComponentesComunes/UT_ComponentesComunes.jpr"/></hash>
       <hash><url n="URL" path="UT_DVM/UT_DVM.jpr"/></hash>

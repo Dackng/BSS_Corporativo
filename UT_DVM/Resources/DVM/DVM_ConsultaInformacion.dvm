@@ -1,0 +1,166 @@
+<dvm name="DVM_ObtenerInformacion" xmlns="http://xmlns.oracle.com/dvm">
+  <description/>
+  <columns>
+    <column name="Key"/>
+    <column name="Value"/>
+  </columns>
+  <rows>
+    <row>
+      <cell>usuario.reniec</cell>
+      <cell>usrsisactdes</cell>
+    </row>
+    <row>
+      <cell>password.reniec</cell>
+      <cell>Admin1</cell>
+    </row>
+    <row>
+      <cell>codigo.exito.idf0</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>mensaje.exito.idf0</cell>
+      <cell>Transacción realizada correctamente</cell>
+    </row>
+    <row>
+      <cell>codigo.error.idf1</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>mensaje.error.idf1</cell>
+      <cell>Faltan parámetros obligatorios: </cell>
+    </row>
+    <row>
+      <cell>codigo.error.idf2</cell>
+      <cell>2</cell>
+    </row>
+    <row>
+      <cell>mensaje.error.idf2</cell>      
+      <cell>Inicio de sesión incorrecto</cell>
+    </row>
+    <row>
+      <cell>codigo.error.idf3</cell>
+      <cell>3</cell>
+    </row>
+    <row>
+      <cell>mensaje.error.idf3</cell>
+      <cell>No se pudo obtener datos de la biometria</cell>            
+    </row>
+    <row>
+      <cell>codigo.error.idf4</cell>
+      <cell>4</cell>
+    </row>
+    <row>
+      <cell>mensaje.error.idf4</cell>
+      <cell>Validación biométrica realizado con éxito, pero hubo un error al cerrar sesión</cell>
+    </row>
+    <row>
+      <cell>codigo.error.idt1</cell>
+      <cell>-1</cell>
+    </row>
+    <row>
+      <cell>mensaje.error.idt1</cell>
+      <cell>Error de Timeout del servicio: </cell>
+    </row>
+    <row>
+      <cell>codigo.error.idt2</cell>
+      <cell>-2</cell>
+    </row>
+    <row>
+      <cell>mensaje.error.idt2</cell>
+      <cell>El siguiente servicio no se encuentra disponible: </cell>
+    </row>
+    <row>
+      <cell>flag.error</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>codigoError</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>flag.exito</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>reintentos.maximos</cell>
+      <cell>3</cell>
+    </row>
+    <row>
+      <cell>codigo.exito.verificacionbiometrica</cell>
+      <cell>301001</cell>
+    </row>
+    <row>
+      <cell>codigo.exito.signon</cell>
+      <cell>00000</cell>
+    </row>
+    <row>
+      <cell>codigo.exito.signoff</cell>
+      <cell>00000</cell>
+    </row>
+    <row>
+      <cell>codigo.transaccion.signon</cell>
+      <cell>101000</cell>
+    </row>
+    <row>
+      <cell>codigo.transaccion.signoff</cell>
+      <cell>102000</cell>
+    </row>
+    <row>
+      <cell>codigo.transaccion.verificacion</cell>
+      <cell>301001</cell>
+    </row> 
+    <row>
+      <cell>mensaje.exito.validacionbiometria</cell>
+      <cell>Exito en la validacion biometria</cell>
+    </row>
+    <row>
+      <cell>codigo.exito.verificacionbiometria</cell>
+      <cell>70006</cell>
+    </row> 
+    <row>
+      <cell>respuesta.exito.obtenerdatosreniec</cell>
+      <cell>0000</cell>
+    </row>     
+    <row>
+      <cell>codigo.error.idf1.obtenerdatosreniec</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>mensaje.error.idf1.obtenerdatosreniec</cell>
+      <cell>No se ha podido obtener información de Reniec</cell>
+    </row>
+    <row>
+      <cell>codigo.error.idf1.firmardocumento</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>mensaje.error.idf1.firmardocumento</cell>
+      <cell>No se ha podido firmar documento</cell>
+    </row>
+    
+    <row>
+      <cell>parametro.auditoria.firmardocumento.contenttype</cell>
+      <cell>application/json</cell>
+    </row>
+        <row>
+      <cell>parametro.auditoria.firmardocumento.accept</cell>
+      <cell>application/json</cell>
+    </row>
+        <row>
+      <cell>parametro.auditoria.firmardocumento.idtransaccion</cell>
+      <cell>12132313</cell>
+    </row>
+        <row>
+      <cell>parametro.auditoria.firmardocumento.msgid</cell>
+      <cell>2333213</cell>
+    </row>
+        <row>
+      <cell>parametro.auditoria.firmardocumento.timestamp</cell>
+      <cell>20170601130316488</cell>
+    </row>
+        <row>
+      <cell>parametro.auditoria.firmardocumento.userid</cell>
+      <cell>ADMIN</cell>
+    </row>
+  </rows>
+</dvm>

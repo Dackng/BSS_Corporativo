@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://claro.com.pe/esb/data/generico/claroGenericHeader/v1/"
+            targetNamespace="http://claro.com.pe/esb/data/generico/claroGenericHeader/v1/"
+            xmlns:tns="http://claro.com.pe/esb/data/generico/claroGenericHeader/v1/"
+            elementFormDefault="qualified">
+  <xsd:element name="headerRequest" type="tns:HeaderRequestType">
+    <xsd:annotation>
+      <xsd:documentation>Todas las operaciones de los servicios implementaran esta cabecera para el envio de los datos de entrada.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="headerResponse" type="tns:HeaderResponseType">
+    <xsd:annotation>
+      <xsd:documentation>Todas las operaciones de los servicios implementaran esta cabecera para el envio de los datos de entrada.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+    <xsd:complexType name="HeaderRequestType">
+      <xsd:sequence>
+      <xsd:element name="canal" type="xsd:string"/>
+      <xsd:element name="idAplicacion" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="usuarioAplicacion" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="usuarioSesion" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="idTransaccionESB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="idTransaccionNegocio" type="xsd:string"/>
+      <xsd:element name="fechaInicio" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="nodoAdicional" type="xsd:anyType" minOccurs="0"/>
+    </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="HeaderResponseType">
+      <xsd:sequence>
+      <xsd:element name="idTransaccionESB" type="xsd:string"/>
+      <xsd:element name="idTransaccionNegocio" type="xsd:string"/>
+      <xsd:element name="fechaInicio" type="xsd:dateTime"/>
+      <xsd:element name="fechaFin" type="xsd:dateTime"/>
+      <xsd:element name="nodoAdicional" type="xsd:anyType" minOccurs="0"/>
+    </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

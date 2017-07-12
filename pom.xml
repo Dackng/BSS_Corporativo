@@ -12,6 +12,10 @@
     <modules>
         <module>System</module>
         <module>BSS_Corporativo</module>
+        <module>CON_SW_AdministrarUsuario</module>
+        <module>UT_ComponentesComunes</module>
+        <module>UT_DVM</module>
+        <module>UT_LogAuditoria</module>
     </modules>
 
 </project>

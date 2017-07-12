@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://claro.com.pe/esb/data/logAuditoria/v1/" xmlns:aud="http://claro.com.pe/esb/data/logAuditoria/v1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="itemAuditoria" type="aud:ItemAuditoriaType"/>
+      <xsd:element name="listaAuditoria" type="aud:ListaAuditoria"/>
+      <xsd:complexType name="ListaAuditoria">
+        <xsd:sequence>
+          <xsd:element name="itemAuditoria" type="aud:ItemAuditoriaType" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ItemAuditoriaType">
+        <xsd:sequence>
+          <xsd:element type="xsd:string" name="idAuditoria" maxOccurs="1" minOccurs="1"/>
+          <xsd:element type="xsd:dateTime" name="fecha" maxOccurs="1" minOccurs="1"/>
+          <xsd:element type="xsd:string" name="nombreServicio" maxOccurs="1" minOccurs="1"/>
+          <xsd:element type="xsd:string" name="nombreOperacion" maxOccurs="1" minOccurs="1"/>
+          <xsd:element type="xsd:string" name="idTransaccionOSB" maxOccurs="1" minOccurs="0"/>
+          <xsd:element type="xsd:string" name="idTransaccionNegocio" maxOccurs="1" minOccurs="0"/>
+          <xsd:element type="xsd:string" name="tipoMensaje" maxOccurs="1" minOccurs="0"/>
+          <xsd:element type="xsd:anyType" name="header" maxOccurs="1" minOccurs="0"/>
+          <xsd:element type="xsd:anyType" name="body" maxOccurs="1" minOccurs="0"/>
+          <xsd:element type="xsd:anyType" name="fault" maxOccurs="1" minOccurs="0"/>
+          <xsd:element type="xsd:string" name="resultado" maxOccurs="1" minOccurs="1"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>

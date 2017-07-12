@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:aud="http://claro.com.pe/esb/data/logAuditoria/v1/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="resgistrarAuditoria" targetNamespace="http://claro.com.pe/esb/data/logAuditoria/v1/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://claro.com.pe/esb/data/logAuditoria/v1/">
+       <xsd:element name="auditoria">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="item" maxOccurs="unbounded" minOccurs="0">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element type="xsd:string" name="idAuditoria" maxOccurs="1" minOccurs="1"/>
+              <xsd:element type="xsd:dateTime" name="fecha" maxOccurs="1" minOccurs="1"/>
+              <xsd:element type="xsd:string" name="nombreServicio" maxOccurs="1" minOccurs="1"/>
+              <xsd:element type="xsd:string" name="nombreOperacion" maxOccurs="1" minOccurs="1"/>
+              <xsd:element type="xsd:string" name="idTransaccionESB" maxOccurs="1" minOccurs="0"/>
+              <xsd:element type="xsd:string" name="idTransaccionNegocio" maxOccurs="1" minOccurs="0"/>
+              <xsd:element type="xsd:string" name="tipoMensaje" maxOccurs="1" minOccurs="0"/>
+              <xsd:element type="xsd:string" name="header" maxOccurs="1" minOccurs="0"/>
+              <xsd:element type="xsd:string" name="body" maxOccurs="1" minOccurs="0"/>
+              <xsd:element type="xsd:string" name="fault" maxOccurs="1" minOccurs="0"/>
+              <xsd:element type="xsd:string" name="resultado" maxOccurs="1" minOccurs="1"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="AuditoriaRequest">
+    <wsdl:part element="aud:auditoria" name="parameters"/>
+  </wsdl:message>
+  
+  <wsdl:portType name="resgistrarAuditoria">
+    <wsdl:operation name="Auditoria">
+      <wsdl:input message="aud:AuditoriaRequest"/>
+
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="resgistrarAuditoriaSOAP" type="aud:resgistrarAuditoria">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Auditoria">
+      <soap:operation soapAction="http://claro.com.pe/esb/data/logAuditoria/v1/Auditoria"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="resgistrarAuditoria">
+    <wsdl:port binding="aud:resgistrarAuditoriaSOAP" name="resgistrarAuditoriaSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

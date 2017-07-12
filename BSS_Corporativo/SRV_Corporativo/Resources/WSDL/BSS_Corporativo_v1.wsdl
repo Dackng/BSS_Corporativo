@@ -17,7 +17,6 @@ xmlns:types="http://claro.com.pe/esb/data/ventas/bsscorporativo/types">
       <xsd:import schemaLocation="../../../SRV_Corporativo/Resources/XSD/validarRegistroBio_v1.xsd" namespace="http://claro.com.pe/esb/data/ventas/bsscorporativo/types"/>
       <xsd:import schemaLocation="../../../SRV_Corporativo/Resources/XSD/validarCantBio_v1.xsd" namespace="http://claro.com.pe/esb/data/ventas/bsscorporativo/types"/>
       <xsd:import schemaLocation="../../../SRV_Corporativo/Resources/XSD/validarCliente_v1.xsd" namespace="http://claro.com.pe/esb/data/ventas/bsscorporativo/types"/>
-      <xsd:import schemaLocation="../../../SRV_Corporativo/Resources/XSD/enviarNotificacionRRLL_v1.xsd" namespace="http://claro.com.pe/esb/data/ventas/bsscorporativo/types"/>
       
       <xsd:import schemaLocation="../../../SRV_Corporativo/Resources/XSD/ClaroFault_v1.xsd" namespace="http://claro.com.pe/esb/data/generico/claroFault/v1/"/> 
       <xsd:import schemaLocation="../../../SRV_Corporativo/Resources/XSD/ClaroGenericHeaders_v1.xsd" namespace="http://claro.com.pe/esb/data/generico/claroGenericHeader/v1/"/>
@@ -52,13 +51,6 @@ xmlns:types="http://claro.com.pe/esb/data/ventas/bsscorporativo/types">
     <wsdl:part name="validarClienteResponse" element="types:ValidarClienteResponse"/>
   </wsdl:message>
 
-  <wsdl:message name="enviarNotificacionRRLLRequestMessage">
-    <wsdl:part name="enviarNotificacionRRLLRequest" element="types:EnviarNotificacionRRLLRequest"/>
-  </wsdl:message>
-  <wsdl:message name="enviarNotificacionRRLLResponseMessage">
-    <wsdl:part name="enviarNotificacionRRLLResponse" element="types:EnviarNotificacionRRLLResponse"/>
-  </wsdl:message>
-
   <wsdl:message name="claroFault">
     <wsdl:part name="claroFault" element="cf:claroFault"/>
   </wsdl:message>
@@ -82,12 +74,7 @@ xmlns:types="http://claro.com.pe/esb/data/ventas/bsscorporativo/types">
       <wsdl:output message="tns:validarClienteResponseMessage"/>
       <wsdl:fault message="tns:claroFault" name="claroFault"/>
     </wsdl:operation>
-    
-    <wsdl:operation name="enviarNotificacionRRLL">
-      <wsdl:input message="tns:enviarNotificacionRRLLRequestMessage"/>
-      <wsdl:output message="tns:enviarNotificacionRRLLResponseMessage"/>
-      <wsdl:fault message="tns:claroFault" name="claroFault"/>
-    </wsdl:operation>
+
   </wsdl:portType>
 
   
@@ -138,21 +125,7 @@ xmlns:types="http://claro.com.pe/esb/data/ventas/bsscorporativo/types">
 		<soap:fault name="claroFault" use="literal"/> 
 	  </wsdl:fault> 
     </wsdl:operation>  
-    
-    <wsdl:operation name="enviarNotificacionRRLL">
-      <soap:operation style="document" soapAction="http://claro.com.pe/esb/ventas/bsscorporativo/v1/enviarNotificacionRRLL"/>
-      <wsdl:input>
-        <soap:header message="tns:headerRequest" part="headerRequest" use="literal"/>
-        <soap:body use="literal" parts="enviarNotificacionRRLLRequest"/>
-      </wsdl:input>
-      <wsdl:output>
-       <soap:header message="tns:headerResponse" part="headerResponse" use="literal"/>
-       <soap:body use="literal" parts="enviarNotificacionRRLLResponse"/>
-      </wsdl:output>
-	  <wsdl:fault name="claroFault"> 
-		<soap:fault name="claroFault" use="literal"/> 
-	  </wsdl:fault> 
-    </wsdl:operation> 
+  
   </wsdl:binding>
   
   <wsdl:binding name="BSS_CorporativoSOAP12Binding" type="tns:BSS_CorporativoPort">
@@ -197,21 +170,6 @@ xmlns:types="http://claro.com.pe/esb/data/ventas/bsscorporativo/types">
       <wsdl:output>
        <soap:header message="tns:headerResponse" part="headerResponse" use="literal"/>
         <soap12:body use="literal" parts="validarClienteResponse"/>
-      </wsdl:output>
-	  <wsdl:fault name="claroFault"> 
-		<soap:fault name="claroFault" use="literal"/> 
-	  </wsdl:fault> 
-    </wsdl:operation>
-    
-    <wsdl:operation name="enviarNotificacionRRLL">
-      <soap12:operation style="document" soapAction="http://claro.com.pe/esb/ventas/bsscorporativo/v1/enviarNotificacionRRLL"/>
-      <wsdl:input>
-        <soap:header message="tns:headerRequest" part="headerRequest" use="literal"/>
-        <soap12:body use="literal" parts="enviarNotificacionRRLLRequest"/>
-      </wsdl:input>
-      <wsdl:output>
-       <soap:header message="tns:headerResponse" part="headerResponse" use="literal"/>
-        <soap12:body use="literal" parts="enviarNotificacionRRLLResponse"/>
       </wsdl:output>
 	  <wsdl:fault name="claroFault"> 
 		<soap:fault name="claroFault" use="literal"/> 

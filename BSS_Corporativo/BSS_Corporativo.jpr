@@ -255,9 +255,9 @@
                <value n="promptForRemoteDebugging" v="false"/>
                <value n="remoteParameter:SOA:hostname" v="LIM-8L6PMF2.usersad.everis.int"/>
                <value n="remoteParameter:SOA:port" v="5004"/>
-               <value n="remoteProtocol" v="SOA"/>
+               <value n="remoteProtocol" v="SOACommon"/>
             </hash>
-            <value n="remoteDebuggingProfiling" v="true"/>
+            <value n="remoteDebuggingProfiling" v="false"/>
             <url n="targetURL" path="servicebus.sboverview"/>
          </hash>
       </hash>
@@ -287,8 +287,9 @@
    </hash>
    <hash n="oracle.tip.tools.ide.fabric.addin.SCAContentSetProvider">
       <hash n="sca-content">
+         <list n="pattern-filters"/>
          <list n="url-path">
-            <url path="."/>
+            <url path=".data/contentsets/"/>
          </list>
       </hash>
    </hash>
